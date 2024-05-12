@@ -1,12 +1,11 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-# URL for connecting to the PostgreSQL database using psycopg2 driver.
-# "postgresql+psycopg2://<username>:<password>@<host>:<port>/<database_name>"
-SQLALCHEMY_DATABASE_URL = (
-    "postgresql+psycopg2://postgres:aN9e94poEi@"
-    "localhost:5432/rest_app"
-)
+from src.conf.config import settings
+
+# URL for connecting to the PostgreSQL database
+SQLALCHEMY_DATABASE_URL = settings.sqlalchemy_database_url
+
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
