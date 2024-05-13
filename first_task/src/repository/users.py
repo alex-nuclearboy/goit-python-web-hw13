@@ -58,7 +58,17 @@ async def update_token(user: User, token: str | None, db: Session) -> None:
     db.commit()
 
 
-async def confirmed_email(email: str, db: Session) -> None:
+async def confirm_email(email: str, db: Session) -> None:
+    """
+    Confirm the user's email address in the database. This function sets the
+    'confirmed' status of the user to True, indicating that the user has
+    verified their email address.
+
+    Args:
+        email (str): The email address of the user whose email confirmation
+                     status needs to be updated.
+        db (Session): The SQLAlchemy session for database interaction.
+    """
     user = await get_user_by_email(email, db)
     user.confirmed = True
     db.commit()
