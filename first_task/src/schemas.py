@@ -137,4 +137,14 @@ class TokenModel(BaseModel):
 
 
 class RequestEmail(BaseModel):
+    """
+    A model designed to handle incoming email data for requests that
+    require user email input. This could include operations like sending
+    password reset links or verifying an email address.
+
+    Attributes:
+        email (EmailStr): A valid email address provided by the user.
+                          The EmailStr type ensures that the email provided
+                          conforms to the format of a standard email address.
+    """
     email: EmailStr
