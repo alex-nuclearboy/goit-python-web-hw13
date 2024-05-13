@@ -5,12 +5,12 @@ from fastapi import (
     status,
     Security,
     BackgroundTasks,
-    Request
+    Request,
 )
 from fastapi.security import (
     OAuth2PasswordRequestForm,
     HTTPAuthorizationCredentials,
-    HTTPBearer
+    HTTPBearer,
 )
 
 from sqlalchemy.orm import Session
@@ -121,7 +121,7 @@ async def refresh_token(
     }
 
 
-@router.get('/confirmed_email/{token}')
+@router.get('/confirm_email/{token}')
 async def confirmed_email(token: str, db: Session = Depends(get_db)):
     email = await auth_service.get_email_from_token(token)
     user = await repository_users.get_user_by_email(email, db)
