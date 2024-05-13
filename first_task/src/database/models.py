@@ -68,6 +68,10 @@ class User(Base):
         refresh_token (String): A refresh token for the user's session,
                                 optional, used in authentication systems
                                 to renew access tokens.
+        confirmed (Boolean): Indicates whether the user's email address
+                             has been confirmed. Defaults to False, and
+                             it must be set to True after the user confirms
+                             their email.
     """
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
