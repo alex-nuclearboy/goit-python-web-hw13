@@ -92,12 +92,15 @@ class UserDb(BaseModel):
         username (str): The username of the user.
         email (str): The email address of the user.
         created_at (datetime): The timestamp when the user was created.
+        updated_at (datetime): The timestamp when the user information
+                               was last updated.
         avatar (str): A URL to the user's avatar.
     """
     id: int
     username: str
     email: str
     created_at: datetime
+    updated_at: datetime
     avatar: str
 
     class Config:

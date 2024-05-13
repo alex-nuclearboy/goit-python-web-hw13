@@ -64,6 +64,9 @@ class User(Base):
                            authentication purposes.
         created_at (DateTime): The timestamp when the user account was created,
                                defaults to the current time.
+        updated_at (DateTime): The timestamp when the user information was
+                               last updated, updates automatically
+                               on modification.
         avatar (String): A URL to the user's avatar image, optional.
         refresh_token (String): A refresh token for the user's session,
                                 optional, used in authentication systems
@@ -79,6 +82,9 @@ class User(Base):
     email = Column(String(50), nullable=False, unique=True)
     password = Column(String(255), nullable=False)
     created_at = Column('created_at', DateTime, default=func.now())
+    updated_at = Column(
+        'updated_at', DateTime, default=func.now(), onupdate=func.now()
+    )
     avatar = Column(String(255), nullable=True)
     refresh_token = Column(String(255), nullable=True)
     confirmed = Column(Boolean, default=False)
