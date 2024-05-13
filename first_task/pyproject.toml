@@ -23,6 +23,7 @@ redis = "^5.0.4"
 fastapi-mail = "^1.4.1"
 pydantic-settings = "^2.2.1"
 fastapi-limiter = "^0.1.6"
+cloudinary = "^1.40.0"
 
 
 [build-system]
