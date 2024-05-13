@@ -72,3 +72,24 @@ async def confirm_email(email: str, db: Session) -> None:
     user = await get_user_by_email(email, db)
     user.confirmed = True
     db.commit()
+
+
+async def update_avatar(email, url: str, db: Session) -> User:
+    """
+    Update the avatar URL for a specific user in the database. This function
+    sets the 'avatar' field of the user to the new URL provided, which points
+    to the location of the updated image.
+
+    Args:
+        email (str): The email address of the user whose avatar
+                     is being updated.
+        url (str): The new URL pointing to the avatar image.
+        db (Session): The SQLAlchemy session for database interaction.
+
+    Returns:
+        User: The updated user object after changing the avatar.
+    """
+    user = await get_user_by_email(email, db)
+    user.avatar = url
+    db.commit()
+    return user
