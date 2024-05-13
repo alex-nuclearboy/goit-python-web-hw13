@@ -8,12 +8,15 @@
 <body>
     <p>Hi {{username}},</p>
     <p>Thank you for signing up for our service.</p>
-    <p>Please click the following link to verify your email address:</p>
+    <p>To verify your email address, please use one of the following options:</p>
+    <p><b>Option 1:</b> Click the link below to verify your email:</p>
     <p>
         <a href="{{host}}api/auth/confirm_email/{{token}}">
-            Verification
+            Verify Email
         </a>
     </p>
+    <p><b>Option 2:</b> Copy and paste the token below into the appropriate field in Swagger UI:</p>
+    <p><code>{{token}}</code></p>
     <p>If you did not sign up for our service, please ignore this email.</p>
     <p>Thanks,</p>
     <p>The Our Team</p>
