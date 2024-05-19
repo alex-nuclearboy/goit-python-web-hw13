@@ -1,5 +1,7 @@
 from fastapi import APIRouter, Depends, UploadFile, File
+from fastapi_limiter.depends import RateLimiter
 from sqlalchemy.orm import Session
+
 import cloudinary
 import cloudinary.uploader
 
@@ -13,14 +15,34 @@ from src.schemas import UserDb
 router = APIRouter(prefix="/users", tags=["users"])
 
 
-@router.get("/me", response_model=UserDb)
+@router.get(
+        "/me",
+        response_model=UserDb,
+        description=(
+            "Retrieves the current user's profile information. This endpoint "
+            "is available to authenticated users and returns data such as "
+            "username, email, and avatar link. Useful for user profile "
+            "displays within the application."
+        )
+)
 async def read_users_me(
     current_user: User = Depends(auth_service.get_current_user)
 ):
     return current_user
 
 
-@router.patch('/avatar', response_model=UserDb)
+@router.patch(
+        '/avatar',
+        response_model=UserDb,
+        description=(
+            "Updates the user's avatar image. This endpoint allows "
+            "authenticated users to upload a new avatar image, which will be "
+            "stored and managed via Cloudinary. The new avatar URL is then "
+            "updated in the user's profile. This endpoint is rate-limited "
+            "to 10 requests per minute to prevent abuse."
+        ),
+        dependencies=[Depends(RateLimiter(times=10, seconds=60))]
+)
 async def update_avatar_user(
     file: UploadFile = File(),
     current_user: User = Depends(auth_service.get_current_user),
