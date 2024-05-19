@@ -19,10 +19,10 @@ router = APIRouter(prefix='/contacts')
         description=(
             "Fetches contacts with birthdays coming up within the next week. "
             "Useful for generating reminders or notifications. "
-            "Rate-limited to 10 requests per minute to maintain performance "
+            "Rate-limited to 30 requests per minute to maintain performance "
             "across the service."
         ),
-        dependencies=[Depends(RateLimiter(times=10, seconds=60))]
+        dependencies=[Depends(RateLimiter(times=30, seconds=60))]
 )
 async def get_upcoming_birthdays(
     db: Session = Depends(get_db),

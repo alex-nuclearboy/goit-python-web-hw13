@@ -157,8 +157,8 @@ async def refresh_token(
         description=(
             "Confirms a user's email address using a token sent to the user's "
             "email upon registration. Validates the token and marks the email "
-            "as confirmed. Rate-limited to 30 requests per minute to prevent "
-            "abuse of the endpoint"
+            "as confirmed. Rate-limited to 10 requests per minute to prevent "
+            "abuse of the endpoint."
         ),
         dependencies=[Depends(RateLimiter(times=10, seconds=60))]
 )
@@ -252,8 +252,8 @@ async def password_reset_request(
         description=(
             "Allows a user to reset their password using a valid token "
             "received via email. This endpoint confirms the token's validity, "
-            "applies the new password, and updates the user's account."
-            "Rate-limited to 30 requests per minute."
+            "applies the new password, and updates the user's account. "
+            "Rate-limited to 10 requests per minute."
         ),
         dependencies=[Depends(RateLimiter(times=10, seconds=60))]
 )
