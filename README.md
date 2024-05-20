@@ -1,5 +1,27 @@
 # REST API and Django Projects
 
+This repository hosts two distinct projects: a Contact Management API built with FastAPI and a Quotes Web Application built with Django. Both projects demonstrate advanced features of their respective frameworks, including user authentication, CRUD operations, and database management.
+
+## Clone the Repository
+
+Before getting started, clone the repository:
+
+```bash
+git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
+```
+
+## Table of Contents
+1. [Contact Management API](#contact-management-api)
+   - [Key Features](#key-features-1)
+   - [Technologies Used](#technologies-used-1)
+   - [Installation and Usage](#installation-and-usage-1)
+   - [Stopping the Application and Exiting](#stopping-the-application-and-exiting-1)
+2. [Quotes Web Application](#quotes-web-application)
+   - [Key Features](#key-features-2)
+   - [Technologies Used](#technologies-used-2)
+   - [Installation and Usage](#installation-and-usage-2)
+   - [Stopping the Server and Exiting](#stopping-the-server-and-exiting-2)
+
 ## Contact Management API
 
 This repository hosts an enhanced version of a previous Contact Management project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw12). This prior version includes a REST API for managing contact information, built using FastAPI and SQLAlchemy, leveraging PostgreSQL as the backend database. It supports basic CRUD operations for managing contacts along with additional features such as contact search by various attributes and retrieval of contacts with upcoming birthdays.
@@ -41,11 +63,6 @@ This repository hosts an enhanced version of a previous Contact Management proje
 - **Poetry:** This project uses Poetry for dependency management.
 
 #### Setting Up the Project
-
-- **Clone the Repository:**
-```bash
-git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
-```
 
 - **Navigate to the Project Directory:**
 ```bash
@@ -143,7 +160,7 @@ This command will deactivate the virtual environment and return you to your syst
 
 ## Quotes Web Application
 
-This repository hosts an enhanced version of the "Quotes" Website Project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw10). 
+This repository also hosts an enhanced version of the "Quotes" Website Project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw10). 
 This Python-based Django project, titled "Quotes," is a dynamic website dedicated to the exploration and sharing of famous quotations. The site serves as an educational platform to demonstrate practical applications of Django, highlighting advanced features like user authentication, database migrations, and environment variable management. The project aims to provide a practical demonstration of advanced Django features, database handling, and personalized user management.
 
 ### Key Features
@@ -173,14 +190,9 @@ This Python-based Django project, titled "Quotes," is a dynamic website dedicate
 
 #### Setting Up the Project
 
-- **Clone the Repository:**
-```bash
-git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
-```
-
 - **Navigate to the Project Directory:**
 ```bash
-cd goit-python-web-hw13/second_task
+cd ../second_task
 ```
 
 - **Environment Setup**
