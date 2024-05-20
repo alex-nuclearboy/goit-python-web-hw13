@@ -1,0 +1,38 @@
+{% extends 'quotesapp/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Add a New Author</h2>
+    <form method="POST" action="{% url 'quotesapp:add_author' %}">
+        {% csrf_token %}
+        <div style="padding: 10px">
+            <label for="id_fullname">Enter the author name:</label>
+            {{ form.fullname }}
+            <span>{{ form.errors.fullname }}</span>
+        </div>
+        
+        <div style="padding: 10px">
+            <label for="id_birth_date">Enter the author's birth date:</label>
+            {{ form.birth_date }}
+            <span>{{ form.errors.birth_date }}</span>
+        </div>
+        
+        <div style="padding: 10px">
+            <label for="id_birth_location">Enter the author's birth location:</label>
+            {{ form.birth_location }}
+            <span>{{ form.errors.birth_location }}</span>
+        </div>
+        
+        <div style="padding: 10px">
+            <label for="id_description">Enter a brief description:</label>
+            {{ form.description }}
+            <span>{{ form.errors.description }}</span>
+        </div>
+        
+        <div class="grid" style="padding: 10px">
+            <button type="submit">Save</button>
+            <button type="reset" class="secondary">Reset</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

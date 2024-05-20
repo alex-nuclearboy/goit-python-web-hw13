@@ -1,0 +1,22 @@
+.alert-error, .errorlist {
+    color: crimson;
+}
+
+.alert-success {
+    color: green;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+.content-container {
+    width: 90%;
+    margin: auto;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    gap: 10px;
+}

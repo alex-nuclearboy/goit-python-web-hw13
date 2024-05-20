@@ -1,0 +1,15 @@
+{% extends 'quotesapp/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Edit Author</h2>
+    <form id="editAuthorForm" method="POST" action="{% url 'quotesapp:edit_author' author_id=author.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <div class="grid">
+            <button type="submit">Save Changes</button>
+            <button type="button" class="secondary">Reset</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

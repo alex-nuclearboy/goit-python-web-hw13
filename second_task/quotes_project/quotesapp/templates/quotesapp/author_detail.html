@@ -1,0 +1,26 @@
+{% extends 'quotesapp/base.html' %}
+
+{% block content %}
+<h2>{{ author.fullname }}</h2>
+<p><b>Born:</b> {{ author.birth_date }} {{ author.birth_location }}</p>
+<p><b>Description:</b></p>
+<p> {{ author.description }}</p>
+
+<script>
+    function confirmDelete(objectType, objectId) {
+        if (confirm('Are you sure you want to delete this ' + objectType + '?')) {
+            window.location.href = `/quotesapp/${objectType}/delete/${objectId}/`;
+        }
+    }
+</script>
+
+{% if user.is_authenticated %}
+<nav style="margin-top: 20px; border-top: 2px solid; padding-left: 30px">
+    <ul>
+        <li><a href="{% url 'quotesapp:edit_author' author.id %}" role="button">Edit Author</a></li>
+        <li><a href="#" onclick="confirmDelete('author', '{{ author.id }}')" role="button" class="secondary">Delete Author</a></li>
+    </ul>
+</nav>
+{% endif %}
+
+{% endblock %}
