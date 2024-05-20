@@ -1,3 +1,5 @@
+# REST API and Django Projects
+
 ## Contact Management API
 
 This repository hosts an enhanced version of a previous Contact Management project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw12). This prior version includes a REST API for managing contact information, built using FastAPI and SQLAlchemy, leveraging PostgreSQL as the backend database. It supports basic CRUD operations for managing contacts along with additional features such as contact search by various attributes and retrieval of contacts with upcoming birthdays.
@@ -160,16 +162,16 @@ This Python-based Django project, titled "Quotes," is a dynamic website dedicate
 - **Password Reset:** Provides a secure mechanism for users to reset their passwords via email.
 - **Environment Variables:** Uses environment variables for managing sensitive information like database credentials, email server settings, and secret keys.
 
-## Technologies Used
+### Technologies Used
 
 - **Django:** Used for the backend framework, facilitating rapid development and clean, pragmatic design.
 - **PostgreSQL:** Acts as the primary relational database management system for robust data handling.
 - **Poetry:** Manages dependencies and packages, ensuring a consistent and reproducible virtual development environment.
 - **Docker Compose:** Simplifies deployment by using containerization to manage service configurations.
 
-## Installation and Usage
+### Installation and Usage
 
-### Setting Up the Project
+#### Setting Up the Project
 
 - **Clone the Repository:**
 ```bash
@@ -210,7 +212,7 @@ poetry install --no-root
 docker compose up -d
 ```
 
-### Database Migration and Data Transfer
+#### Database Migration and Data Transfer
 
 - **Navigate to the Django project Directory:**
 ```bash
@@ -237,7 +239,7 @@ cd quotes_project/
     py -m utils.migration
     ```
 
-### Starting the Server
+#### Starting the Server
 
 - Once the migrations and data transfer are complete, you can start the Django development server:
     - Unix/Linux/macOS:
@@ -249,22 +251,22 @@ cd quotes_project/
     py manage.py runserver
     ```
 
-### Accessing the Application
+#### Accessing the Application
 
 After starting the server, open a web browser and visit the following URL to access the "Quotes" application:
 
 [http://127.0.0.1:8000/quotesapp/](http://127.0.0.1:8000/quotesapp/)
 
-## How to Use the "Quotes" Website
+### How to Use the "Quotes" Website
 
 Once you have the "Quotes" website running, here's how you can explore and interact with the site:
 
-### Viewing Quotes and Authors
+#### Viewing Quotes and Authors
 
 - **Browse Quotes:** Upon visiting the main page at [http://127.0.0.1:8000/quotesapp/](http://127.0.0.1:8000/quotesapp/), you'll be greeted with a list of all the quotes uploaded to the site. Each quote is displayed with its content, the author's name, and associated tags.
 - **Learn About Authors:** Each author's name is a clickable link. Clicking on an author's name will take you to a dedicated page that includes a biography of the author.
 
-### Interacting with the Site as a Registered User
+#### Interacting with the Site as a Registered User
 
 After registering and logging in, you gain additional capabilities:
 
@@ -272,16 +274,16 @@ After registering and logging in, you gain additional capabilities:
 - **Edit and Delete Entries:** If you have added a quote, an author, or a tag, you can also edit or remove these entries. This helps in keeping the information up to date and accurate.
 - **Update Your Profile:** Users can update their personal information and profile picture (avatar) from the profile page. This feature allows users to express their personality and preferences.
 
-### Using the Search Functionality
+#### Using the Search Functionality
 
 - **Search by Tags:** The site includes a tag-based search feature, where clicking on a tag from the "Top Ten Tags" section or any tag listed under a quote will display all quotes associated with that tag. This is useful for users interested in specific themes or subjects.
 
-### Navigation and Accessibility
+#### Navigation and Accessibility
 
 - **Pagination Controls:** While browsing quotes, you can use the pagination controls at the bottom of the page to navigate between pages of quotes. This makes it easy to browse through large numbers of entries without overwhelming the user.
 
 
-## Stopping the Server and Exiting
+### Stopping the Server and Exiting
 
 When you are finished using the "Quotes" website, follow these steps to properly shut down the server and exit the development environment:
 
