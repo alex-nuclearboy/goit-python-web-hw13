@@ -12,21 +12,21 @@ git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
 
 ## Table of Contents
 1. [Contact Management API](#contact-management-api)
-   - [Key Features](#key-features-1)
-   - [Technologies Used](#technologies-used-1)
-   - [Installation and Usage](#installation-and-usage-1)
-   - [Stopping the Application and Exiting](#stopping-the-application-and-exiting-1)
+   - [Key Features](#contact-key-features)
+   - [Technologies Used](#contact-technologies-used)
+   - [Installation and Usage](#contact-installation-and-usage)
+   - [Stopping the Application and Exiting](#stopping-the-contact)
 2. [Quotes Web Application](#quotes-web-application)
-   - [Key Features](#key-features-2)
-   - [Technologies Used](#technologies-used-2)
-   - [Installation and Usage](#installation-and-usage-2)
-   - [Stopping the Server and Exiting](#stopping-the-server-and-exiting-2)
+   - [Key Features](#quotes-key-features)
+   - [Technologies Used](#quotes-technologies-used)
+   - [Installation and Usage](#quotes-installation-and-usage)
+   - [Stopping the Server and Exiting](#quotes-stopping-the-server-and-exiting)
 
 ## Contact Management API
 
 This repository hosts an enhanced version of a previous Contact Management project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw12). This prior version includes a REST API for managing contact information, built using FastAPI and SQLAlchemy, leveraging PostgreSQL as the backend database. It supports basic CRUD operations for managing contacts along with additional features such as contact search by various attributes and retrieval of contacts with upcoming birthdays.
 
-### Key Features
+### Contact Management API Key Features
 
 #### Original Features:
 - **Create new contacts:** Add new entries to the database.
@@ -44,7 +44,7 @@ This repository hosts an enhanced version of a previous Contact Management proje
 - **CORS Support:** Enables Cross-Origin Resource Sharing (CORS) for the REST API.
 - **User Avatar Update:** Integrates with the Cloudinary service to allow users to update their avatar images.
 
-### Technologies Used
+### Contact Management API Technologies Used
 - **FastAPI:** For creating the REST API.
 - **SQLAlchemy:** As the ORM for database interactions.
 - **PostgreSQL:** As the backend database.
@@ -54,7 +54,7 @@ This repository hosts an enhanced version of a previous Contact Management proje
 - **Poetry:** For managing Python package dependencies and virtual environments.
 - **Cloudinary:** For managing user avatars.
 
-### Installation and Usage
+### Contact Management API Installation and Usage
 
 #### Prerequisites
 
@@ -129,7 +129,7 @@ uvicorn main:app --host localhost --port 8000 --reload
 
 Access the API at [http://localhost:8000](http://localhost:8000) and the Swagger UI at [http://localhost:8000/docs](http://localhost:8000/docs) for testing API endpoints.
 
-#### Stopping the Application and Exiting
+### Stopping the Contact Management API and Exiting
 
 When you are finished using the application, follow these steps to properly shut down the server and exit the development environment:
 
@@ -163,7 +163,7 @@ This command will deactivate the virtual environment and return you to your syst
 This repository also hosts an enhanced version of the "Quotes" Website Project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw10). 
 This Python-based Django project, titled "Quotes," is a dynamic website dedicated to the exploration and sharing of famous quotations. The site serves as an educational platform to demonstrate practical applications of Django, highlighting advanced features like user authentication, database migrations, and environment variable management. The project aims to provide a practical demonstration of advanced Django features, database handling, and personalized user management.
 
-### Key Features
+### Quotes Web Application Key Features
 
 #### Original Features:
 - **Viewing Content:** Visitors can view all uploaded quotes and read detailed biographies of authors without logging in.
@@ -174,19 +174,19 @@ This Python-based Django project, titled "Quotes," is a dynamic website dedicate
 - **Data Migration:** Demonstrates robust data migration from Atlas MongoDB to PostgreSQL, showcasing the handling of data across different database systems.
 - **Search Functionality:** Features a tag-based search that allows visitors to find all quotes associated with a selected tag.
 - **Top Ten Tags:** Displays the ten most popular tags dynamically, highlighting the most talked-about topics.
-- **Pagination:** Implements pagination to manage the display of quotes efficiently, equipped with `next` and `previous` navigation buttons for ease of access.
+- **Pagination:** Implements pagination to manage the display of quotes effiQuotes Web Applicationciently, equipped with `next` and `previous` navigation buttons for ease of access.
 #### Extended Features:
 - **Password Reset:** Provides a secure mechanism for users to reset their passwords via email.
 - **Environment Variables:** Uses environment variables for managing sensitive information like database credentials, email server settings, and secret keys.
 
-### Technologies Used
+### Quotes Web Application Technologies Used
 
 - **Django:** Used for the backend framework, facilitating rapid development and clean, pragmatic design.
 - **PostgreSQL:** Acts as the primary relational database management system for robust data handling.
 - **Poetry:** Manages dependencies and packages, ensuring a consistent and reproducible virtual development environment.
 - **Docker Compose:** Simplifies deployment by using containerization to manage service configurations.
 
-### Installation and Usage
+### Quotes Web Application Installation and Usage
 
 #### Setting Up the Project
 
