@@ -159,6 +159,7 @@ exit
 
 This command will deactivate the virtual environment and return you to your system's default environment.
 
+<a href="#rest-api-and-django-projects" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; display: inline-block; border-radius: 8px; text-decoration: none;">Back to Top</a>
 
 ## Quotes Web Application
 
@@ -326,3 +327,5 @@ exit
 ```
 
 This command will deactivate the virtual environment and return you to your system's default environment.
+
+<a href="#rest-api-and-django-projects" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-align: center; display: inline-block; border-radius: 8px; text-decoration: none;">Back to Top</a>
