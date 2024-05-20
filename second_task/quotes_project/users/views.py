@@ -82,16 +82,25 @@ def profile(request):
                   {'profile_form': profile_form})
 
 
-# class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
-#     template_name = 'users/password_reset.html'
-#     email_template_name = 'users/password_reset_email.html'
-#     html_email_template_name = 'users/password_reset_email.html'
-#     success_url = reverse_lazy('users:password_reset_done')
-#     success_message = ("An email with instructions to reset your password "
-#                        "has been sent to %(email)s.")
-#     subject_template_name = 'users/password_reset_subject.txt'
-
 class CustomPasswordResetView(SuccessMessageMixin, PasswordResetView):
+    """
+    Handle user password reset requests.
+    Extends Django's PasswordResetView to include email validation.
+
+    Attributes:
+        template_name (str): Template for the password reset page.
+        email_template_name (str): Template for the email text body.
+        html_email_template_name (str): Template for the email HTML body.
+        success_url (str): URL to redirect to after successful email send.
+        success_message (str): Success message to display after email send.
+        subject_template_name (str): Template for the email subject.
+
+    Methods:
+        form_valid(form):
+            Validates the form and sends the password reset email
+            if the user exists. Displays an error message if email sending
+            fails or the email is not registered.
+    """
     template_name = 'users/password_reset.html'
     email_template_name = 'users/password_reset_email.html'
     html_email_template_name = 'users/password_reset_email.html'
@@ -101,6 +110,17 @@ class CustomPasswordResetView(SuccessMessageMixin, PasswordResetView):
     subject_template_name = 'users/password_reset_subject.txt'
 
     def form_valid(self, form):
+        """
+        Validate the form and send password reset email if the user exists.
+
+        Args:
+            form (PasswordResetForm): Form instance with cleaned data.
+
+        Returns:
+            HttpResponse: Redirect to success URL if email is sent
+                          successfully, else redirect back to the password
+                          reset page with an error message.
+        """
         email = form.cleaned_data['email']
         associated_users = User.objects.filter(email=email)
         if associated_users.exists():
@@ -119,6 +139,18 @@ class CustomPasswordResetView(SuccessMessageMixin, PasswordResetView):
 
 
 def password_reset_request(request):
+    """
+    Handle password reset request form submission.
+    If POST request, validate the form and initiate password reset process.
+    If GET request, display the password reset form.
+
+    Args:
+        request (HttpRequest): The HTTP request object.
+
+    Returns:
+        HttpResponse: Rendered template for password reset form or redirect
+                      to password reset page with an error message.
+    """
     if request.method == "POST":
         form = PasswordResetForm(request.POST)
         if form.is_valid():
