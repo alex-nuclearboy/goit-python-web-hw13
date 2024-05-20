@@ -33,9 +33,10 @@ urlpatterns = [
         ),
         name='password_reset_confirm'
     ),
-    path('reset-password/complete/',
-         PasswordResetCompleteView.as_view(
-             template_name='users/password_reset_complete.html'
+    path(
+        'reset-password/complete/',
+        PasswordResetCompleteView.as_view(
+            template_name='users/password_reset_complete.html'
         ),
         name='password_reset_complete'
     ),
