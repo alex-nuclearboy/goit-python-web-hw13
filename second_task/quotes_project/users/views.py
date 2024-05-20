@@ -126,7 +126,8 @@ class CustomPasswordResetView(SuccessMessageMixin, PasswordResetView):
         if associated_users.exists():
             try:
                 return super().form_valid(form)
-            except SMTPException:
+            except SMTPException as e:
+                print(f"SMTP error occurred: {e}")
                 messages.error(
                     self.request,
                     "An error occurred while sending the email. "
