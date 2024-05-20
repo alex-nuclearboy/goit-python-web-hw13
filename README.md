@@ -184,6 +184,7 @@ cd goit-python-web-hw13/second_task
 ```
 
 - **Environment Setup**
+
 Create a `.env` file with the following content and substitute your values:
 
 ```plaintext
