@@ -1,11 +1,14 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.views import PasswordResetView
+from django.contrib.auth.forms import PasswordResetForm
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
 from django.urls import reverse_lazy
 from .forms import RegisterForm, LoginForm, ProfileForm
+from smtplib import SMTPException
 
 
 def signupuser(request):
@@ -79,7 +82,16 @@ def profile(request):
                   {'profile_form': profile_form})
 
 
-class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+# class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
+#     template_name = 'users/password_reset.html'
+#     email_template_name = 'users/password_reset_email.html'
+#     html_email_template_name = 'users/password_reset_email.html'
+#     success_url = reverse_lazy('users:password_reset_done')
+#     success_message = ("An email with instructions to reset your password "
+#                        "has been sent to %(email)s.")
+#     subject_template_name = 'users/password_reset_subject.txt'
+
+class CustomPasswordResetView(SuccessMessageMixin, PasswordResetView):
     template_name = 'users/password_reset.html'
     email_template_name = 'users/password_reset_email.html'
     html_email_template_name = 'users/password_reset_email.html'
@@ -87,3 +99,36 @@ class ResetPasswordView(SuccessMessageMixin, PasswordResetView):
     success_message = ("An email with instructions to reset your password "
                        "has been sent to %(email)s.")
     subject_template_name = 'users/password_reset_subject.txt'
+
+    def form_valid(self, form):
+        email = form.cleaned_data['email']
+        associated_users = User.objects.filter(email=email)
+        if associated_users.exists():
+            try:
+                return super().form_valid(form)
+            except SMTPException:
+                messages.error(
+                    self.request,
+                    "An error occurred while sending the email. "
+                    "Please try again later."
+                )
+                return redirect('users:password_reset')
+        else:
+            messages.error(self.request, 'Email address is not registered.')
+            return redirect('users:password_reset')
+
+
+def password_reset_request(request):
+    if request.method == "POST":
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            associated_users = User.objects.filter(email=email)
+            if associated_users.exists():
+                return CustomPasswordResetView.as_view()(request)
+            else:
+                messages.error(request, 'Email address is not registered.')
+                return redirect('users:password_reset')
+    else:
+        form = PasswordResetForm()
+    return render(request, "users/password_reset.html", {"form": form})
