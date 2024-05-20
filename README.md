@@ -12,15 +12,17 @@ git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
 
 ## Table of Contents
 1. [Contact Management API](#contact-management-api)
-   - [Key Features](#contact-key-features)
-   - [Technologies Used](#contact-technologies-used)
-   - [Installation and Usage](#contact-installation-and-usage)
-   - [Stopping the Application and Exiting](#stopping-the-contact)
+   - [Key Features](#contact-management-api-key-features)
+   - [Technologies Used](#contact-management-api-technologies-used)
+   - [Installation and Usage](#contact-management-api-installation-and-usage)
+   - [Stopping the Application and Exiting](#stopping-the-contact-management-api-and-exiting)
 2. [Quotes Web Application](#quotes-web-application)
-   - [Key Features](#quotes-key-features)
-   - [Technologies Used](#quotes-technologies-used)
-   - [Installation and Usage](#quotes-installation-and-usage)
-   - [Stopping the Server and Exiting](#quotes-stopping-the-server-and-exiting)
+   - [Key Features](#quotes-web-application-key-features)
+   - [Technologies Used](#quotes-web-application-technologies-used)
+   - [Installation and Usage](#quotes-web-application-installation-and-usage)
+   - [How to Use the "Quotes" Website](#how-to-use-the-quotes-website)
+   - [Stopping the Server and Exiting](#stopping-the-server-and-exiting)
+
 
 ## Contact Management API
 
