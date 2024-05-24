@@ -2,9 +2,9 @@
 
 This repository hosts two distinct projects: a Contact Management API built with FastAPI and a Quotes Web Application built with Django. Both projects demonstrate advanced features of their respective frameworks, including user authentication, CRUD operations, and database management.
 
-## Clone the Repository
+### Clone the Repository
 
-Before getting started, clone the repository:
+Start by cloning the repository to your local machine:
 
 ```bash
 git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
@@ -26,7 +26,7 @@ git clone https://github.com/alex-nuclearboy/goit-python-web-hw13.git
 
 ## Contact Management API
 
-This repository hosts an enhanced version of a previous Contact Management project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw12). This prior version includes a REST API for managing contact information, built using FastAPI and SQLAlchemy, leveraging PostgreSQL as the backend database. It supports basic CRUD operations for managing contacts along with additional features such as contact search by various attributes and retrieval of contacts with upcoming birthdays.
+This section of the repository enhances a previous Contact Management project, accessible [here](https://github.com/alex-nuclearboy/goit-python-web-hw12). This prior version includes a REST API for managing contact information, built using FastAPI and SQLAlchemy, leveraging PostgreSQL as the backend database. It supports basic CRUD operations for managing contacts along with additional features such as contact search by various attributes and retrieval of contacts with upcoming birthdays.
 
 ### Contact Management API Key Features
 
@@ -40,7 +40,8 @@ This repository hosts an enhanced version of a previous Contact Management proje
 - **List upcoming birthdays:** Display contacts whose birthdays occur within the next week.
 - **User Authentication:** Allows new users to register and authenticate returning users using secure hashing and JWT tokens.
 - **Authorization:** Secures API endpoints with JWT-based authorization, ensuring that only authorized users can access specific actions.
-#### Extended Features:
+
+#### New in this extension:
 - **Email Verification:** Implements a mechanism to verify the email addresses of registered users.
 - **Rate Limiting:** Restricts the number of requests to contact routes to prevent abuse, specifically limiting the rate of contact creation.
 - **CORS Support:** Enables Cross-Origin Resource Sharing (CORS) for the REST API.
@@ -71,40 +72,17 @@ This repository hosts an enhanced version of a previous Contact Management proje
 cd goit-python-web-hw13/first_task
 ```
 
-- **Environment Setup**
+- **To set up the environment** use the following commands depending on your operating system:
+    - Unix/Linux/macOS:
+    ```bash
+    cp .env.example .env
+    ```
+    - Windows:
+    ```powershell
+    copy .env.example .env
+    ```
 
-Create a `.env` file with the following content and substitute your values:
-
-```plaintext
-# Database PostgreSQL
-POSTGRES_DB=rest_app
-POSTGRES_USER=
-POSTGRES_PASSWORD=
-POSTGRES_HOST=localhost
-POSTGRES_PORT=5432
-
-SQLALCHEMY_DATABASE_URL=postgresql+psycopg2://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}
-
-# JWT authentication
-SECRET_KEY=
-ALGORITHM=HS256
-
-# Email service
-MAIL_USERNAME=
-MAIL_PASSWORD=
-MAIL_FROM=
-MAIL_PORT=
-MAIL_SERVER=
-
-# Redis
-REDIS_HOST=localhost
-REDIS_PORT=6379
-
-# Cloud Storage
-CLOUDINARY_NAME=
-CLOUDINARY_API_KEY=
-CLOUDINARY_API_SECRET=
-```
+Edit the `.env` file with your settings.
 
 - **Activate the Poetry Environment and Install Dependencies:**
 ```bash
@@ -112,7 +90,7 @@ poetry shell
 poetry install --no-root
 ```
 
-- **Start the PostgreSQL Server:**
+- **Start the PostgreSQL Server** using Docker Compose:
 ```bash
 docker compose up -d
 ```
@@ -124,7 +102,7 @@ alembic upgrade head
 
 #### Starting
 
-- **Running the FastAPI application** using Uvicorn:
+- **Launch the FastAPI application** using Uvicorn:
 ```bash
 uvicorn main:app --host localhost --port 8000 --reload
 ```
@@ -135,24 +113,25 @@ Access the API at [http://localhost:8000](http://localhost:8000) and the Swagger
 
 When you are finished using the application, follow these steps to properly shut down the server and exit the development environment:
 
-- **Stop the Application:**
+#### Stop the Application:
 
 To stop the FastAPI application, press `CTRL+C` in the terminal window where the server is running. This will terminate the server process.
 
-- **Shut Down the PostgreSQL Server:**
+#### Shut Down the PostgreSQL Server:
 
+If you've started the PostgreSQL server using Docker Compose and wish to stop it, you can use the following command:
+
+- **To stop and remove containers, networks, and volumes:**
 ```bash
 docker compose down
 ```
 
-This command stops the running containers and removes the containers created by docker compose up, along with their networks. It’s a clean way to ensure that no unnecessary Docker processes remain running.
-
-To stop the container but not remove it, use:
+- **To stop the server without removing resources:**
 ```bash
 docker compose stop
 ```
 
-- **Exit the Poetry Environment**
+#### Exit the Poetry Environment
 ```bash
 exit
 ```
@@ -163,8 +142,8 @@ This command will deactivate the virtual environment and return you to your syst
 
 ## Quotes Web Application
 
-This repository also hosts an enhanced version of the "Quotes" Website Project, which can be accessed [here](https://github.com/alex-nuclearboy/goit-python-web-hw10). 
-This Python-based Django project, titled "Quotes," is a dynamic website dedicated to the exploration and sharing of famous quotations. The site serves as an educational platform to demonstrate practical applications of Django, highlighting advanced features like user authentication, database migrations, and environment variable management. The project aims to provide a practical demonstration of advanced Django features, database handling, and personalized user management.
+This section of the repository features an enhanced version of a "Quotes" Website Project, accessible [here](https://github.com/alex-nuclearboy/goit-python-web-hw10). 
+This Python-based Django project is a dynamic website dedicated to the exploration and sharing of famous quotations. The site serves as an educational platform to demonstrate practical applications of Django, highlighting advanced features like user authentication, database migrations, and environment variable management. The project aims to provide a practical demonstration of advanced Django features, database handling, and personalized user management.
 
 ### Quotes Web Application Key Features
 
@@ -178,7 +157,7 @@ This Python-based Django project, titled "Quotes," is a dynamic website dedicate
 - **Search Functionality:** Features a tag-based search that allows visitors to find all quotes associated with a selected tag.
 - **Top Ten Tags:** Displays the ten most popular tags dynamically, highlighting the most talked-about topics.
 - **Pagination:** Implements pagination to manage the display of quotes effiQuotes Web Applicationciently, equipped with `next` and `previous` navigation buttons for ease of access.
-#### Extended Features:
+#### New in this extension:
 - **Password Reset:** Provides a secure mechanism for users to reset their passwords via email.
 - **Environment Variables:** Uses environment variables for managing sensitive information like database credentials, email server settings, and secret keys.
 
@@ -198,24 +177,17 @@ This Python-based Django project, titled "Quotes," is a dynamic website dedicate
 cd ../second_task
 ```
 
-- **Environment Setup**
+- **To set up the environment** use the following commands depending on your operating system:
+    - Unix/Linux/macOS:
+    ```bash
+    cp .env.example .env
+    ```
+    - Windows:
+    ```powershell
+    copy .env.example .env
+    ```
 
-Create a `.env` file with the following content and substitute your values:
-
-```plaintext
-SECRET_KEY=
-
-DATABASE_NAME=quotes_db
-DATABASE_USER=
-DATABASE_PASSWORD=
-DATABASE_HOST=127.0.0.1
-DATABASE_PORT=5432
-
-EMAIL_HOST_USER=
-EMAIL_HOST_PASSWORD=
-EMAIL_PORT=
-EMAIL_HOST=
-```
+Edit the `.env` file with your settings.
 
 - **Activate the Poetry Environment and Install Dependencies:**
 ```bash
@@ -223,19 +195,19 @@ poetry shell
 poetry install --no-root
 ```
 
-- **Start the PostgreSQL Server:**
+- **Start the PostgreSQL Server** with Docker Compose:
 ```bash
 docker compose up -d
 ```
 
 #### Database Migration and Data Transfer
 
-- **Navigate to the Django project Directory:**
+- **Navigate further into the Django project directory:**
 ```bash
 cd quotes_project/
 ```
 
-- **Create Tables in the Database:**
+- **Perform database migrations and data transfers:**
     - Unix/Linux/macOS:
     ```bash
     python3 manage.py migrate
@@ -245,7 +217,7 @@ cd quotes_project/
     py manage.py migrate
     ```
 
-- **Migrate Data from Atlas MongoDB:**
+- **Transfer data from Atlas MongoDB:**
     - Unix/Linux/macOS:
     ```bash
     python3 -m utils.migration
@@ -257,7 +229,7 @@ cd quotes_project/
 
 #### Starting the Server
 
-- Once the migrations and data transfer are complete, you can start the Django development server:
+- Once the migrations and data transfer are complete, **launch the Django development server**:
     - Unix/Linux/macOS:
     ```bash
     python3 manage.py runserver
@@ -303,25 +275,25 @@ After registering and logging in, you gain additional capabilities:
 
 When you are finished using the "Quotes" website, follow these steps to properly shut down the server and exit the development environment:
 
-- **Stopping the Server**
+#### Stop the Application
 
 To stop the Django development server, you simply need to press `CTRL+C` in the terminal window where the server is running. This will terminate the server process.
 
-- **Shutting Down the PostgreSQL Server**
+#### Shut Down the PostgreSQL Server
 
 If you've started the PostgreSQL server using Docker Compose and wish to stop it, you can use the following command:
 
+- **To stop and remove containers, networks, and volumes:**
 ```bash
 docker compose down
 ```
 
-This command stops the running containers and removes the containers created by `docker compose up`, along with their networks. It’s a clean way to ensure that no unnecessary Docker processes remain running.
-If you wish to stop the container but not remove it, you can use:
+- **To stop the server without removing resources:**
 ```bash
 docker compose stop
 ```
 
-- **Exiting the Poetry Environment**
+#### Exit the Poetry Environment
 ```bash
 exit
 ```
