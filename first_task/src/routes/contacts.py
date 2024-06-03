@@ -11,7 +11,7 @@ from src.database.models import User
 from src.repository import contacts as repository_contacts
 from .auth import auth_service
 
-router = APIRouter(prefix='/contacts')
+router = APIRouter(prefix='/contacts', tags=["contacts"])
 
 
 @router.get(
